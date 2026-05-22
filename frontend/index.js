@@ -57,3 +57,52 @@
     }
   }
 
+  async function showPage(name) {
+    if ((name === "profile" || name === "matches") && !currentUser) {
+      const user = await getMe();
+      if (!user) {
+        openAuth("signin");
+        return;
+      }
+    }
+
+    if (name === "landing" && currentUser) {
+      name = "profile";
+    }
+
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + name);
+    if (target) {
+      target.classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+    if (name === "profile") loadProfile();
+    if (name === "matches") loadMatches();
+  }
+
+  function openAuth(mode = "signin") {
+    showPage("auth");
+    toggleAuthTab(mode);
+  }
+
+  function toggleAuthTab(tab) {
+    const signin = document.getElementById('form-signin');
+    const signup = document.getElementById('form-signup');
+    const tabSignin = document.getElementById('tab-signin');
+    const tabSignup = document.getElementById('tab-signup');
+    showMessage("signin-message", "");
+    showMessage("signup-message", "");
+
+    if (tab === 'signin') {
+      signin.classList.remove('hidden');
+      signup.classList.add('hidden');
+      tabSignin.classList.add('active');
+      tabSignup.classList.remove('active');
+    } else {
+      signup.classList.remove('hidden');
+      signin.classList.add('hidden');
+      tabSignup.classList.add('active');
+      tabSignin.classList.remove('active');
+    }
+  }
