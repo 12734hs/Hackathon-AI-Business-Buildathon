@@ -330,4 +330,32 @@
   }
   .match-discord-hash { font-weight: 700; color: var(--gray-mid); font-size: 14px; }
 
+  /*animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .page.active .animate { animation: fadeUp 0.4s ease both; }
+  .page.active .animate:nth-child(1) { animation-delay: 0s; }
+  .page.active .animate:nth-child(2) { animation-delay: 0.07s; }
+  .page.active .animate:nth-child(3) { animation-delay: 0.14s; }
 
+
+  .message { margin: 12px 0; padding: 12px 14px; border: var(--border-light); border-radius: var(--radius); font-size: 14px; background: var(--gray-light); }
+  .message.error { border-color: var(--primary); color: var(--primary); background: #fff0f0; }
+  .message.success { border-color: #178a3d; color: #178a3d; background: #f0fff4; }
+  .small-loading { font-family: var(--font-mono); color: var(--gray-mid); font-size: 13px; padding: 18px 0; }
+  .match-ai-list { margin-top: 8px; padding-left: 18px; font-size: 13px; color: var(--gray-dark); }
+
+  /*responsivr*/
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-image { display: none; }
+    .features-grid { grid-template-columns: 1fr; }
+    .audience-grid { grid-template-columns: 1fr; }
+    .audience-card { border-right: none; border-bottom: var(--border); }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .matches-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .preview-grid { grid-template-columns: 1fr; }
+  }
