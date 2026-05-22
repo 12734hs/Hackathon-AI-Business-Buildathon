@@ -259,4 +259,22 @@
   .profile-form { display: flex; flex-direction: column; gap: 20px; }
   .profile-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
 
+  /* Live Preview */
+  .preview-section { margin-top: 40px; }
+  .preview-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .preview-title { font-size: 20px; font-weight: 700; color: var(--black); }
+  .preview-badge { background: var(--primary); color: var(--white); font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: var(--radius); }
+  .preview-card {
+    border: var(--border); border-radius: var(--radius); overflow: hidden;
+    background: var(--white);
+  }
+  .preview-card-top { border-bottom: 3px solid var(--primary); padding: 28px 28px 24px; }
+  .preview-name { font-size: 28px; font-weight: 800; letter-spacing: -0.01em; color: var(--black); margin-bottom: 4px; }
+  .preview-meta { font-family: var(--font-mono); font-size: 13px; color: var(--gray-mid); display: flex; align-items: center; gap: 8px; }
+  .preview-card-body { padding: 24px 28px; }
+  .preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .preview-section-label { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary); margin-bottom: 8px; }
+  .preview-goal-box { background: var(--gray-light); border-left: 3px solid var(--primary); padding: 12px 14px; font-style: italic; color: var(--gray-dark); font-size: 14px; }
+
+
 
