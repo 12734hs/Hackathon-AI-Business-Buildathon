@@ -18,10 +18,13 @@ app.secret_key = os.getenv("SECRET_KEY", "dev-secret-key")
 #cookie settings
 app.config["SESSION_COOKIE_HTTPONLY"] = True
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
-
+app.config["SESSION_COOKIE_SECURE"] = False
 #request with cookies
-CORS(app, supports_credentials=True, origins=["http://localhost:5173"])
-
+CORS(app, supports_credentials=True, origins=[
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://0.0.0.0:5173"
+])
 
 # Auth routes
 
