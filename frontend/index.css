@@ -117,3 +117,84 @@
     border-radius: var(--radius); box-shadow: var(--shadow-hard);
   }
 
+  /* page 1 */
+
+
+  #page-landing { background: var(--surface); }
+
+  /* Hero */
+  .hero {
+    padding: 80px 0 72px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: var(--border); padding: 6px 12px; border-radius: var(--radius);
+    font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-dark);
+    margin-bottom: 20px;
+  }
+  .hero-title {
+    font-size: 48px; font-weight: 800; line-height: 1.1;
+    letter-spacing: -0.02em; color: var(--black); margin-bottom: 20px;
+  }
+  .hero-title em { font-style: italic; color: var(--primary); }
+  .hero-desc { font-size: 18px; line-height: 1.6; color: var(--gray-mid); margin-bottom: 36px; max-width: 480px; }
+  .hero-image {
+    border: var(--border); border-radius: var(--radius); overflow: hidden;
+    box-shadow: 8px 8px 0px 0px rgba(0,0,0,0.10); aspect-ratio: 4/3;
+    background: #111; display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .hero-mockup {
+    width: 100%; height: 100%; background: #111;
+    display: flex; flex-direction: column;
+  }
+  .hero-mockup-bar {
+    display: flex; align-items: center; gap: 6px;
+    padding: 10px 14px; background: #1e1e1e; border-bottom: 1px solid #333;
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot-r { background: #ff5f57; }
+  .dot-y { background: #febc2e; }
+  .dot-g { background: #28c840; }
+  .hero-mockup-body { flex: 1; padding: 20px; }
+  .hero-mockup-line { height: 10px; background: #2a2a2a; border-radius: 2px; margin-bottom: 10px; }
+  .hero-mockup-line.w60 { width: 60%; }
+  .hero-mockup-line.w80 { width: 80%; }
+  .hero-mockup-line.w40 { width: 40%; }
+  .hero-mockup-line.red { background: var(--primary); }
+  .hero-mockup-card { border: 1px solid #333; border-radius: 4px; padding: 12px; margin-top: 16px; }
+
+  /* Features */
+  .features-section { border-top: var(--border); padding: 72px 0; }
+  .section-header { margin-bottom: 48px; }
+  .section-title { font-size: 32px; font-weight: 700; letter-spacing: -0.01em; color: var(--black); margin-bottom: 12px; }
+  .section-desc { font-size: 16px; color: var(--gray-mid); max-width: 520px; }
+
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .feature-card { padding: 28px; }
+  .feature-icon {
+    width: 40px; height: 40px; border: var(--border); border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; color: var(--primary);
+  }
+  .feature-label { font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--black); margin-bottom: 8px; }
+  .feature-text { font-size: 15px; line-height: 1.6; color: var(--gray-mid); }
+
+  /* Audience cards */
+  .audience-section { padding: 0 0 72px; }
+  .audience-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border: var(--border); border-radius: var(--radius); overflow: hidden; }
+  .audience-card { padding: 40px 32px; border-right: var(--border); position: relative; overflow: hidden; }
+  .audience-card:last-child { border-right: none; }
+  .audience-card.featured { background: var(--primary); color: var(--white); }
+  .audience-badge {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    border: 1px solid currentColor; padding: 4px 8px; border-radius: var(--radius);
+    display: inline-block; margin-bottom: 20px;
+  }
+  .audience-title { font-size: 24px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 16px; }
+  .audience-card.featured .audience-title { color: var(--white); }
+  .audience-desc { font-size: 15px; line-height: 1.6; opacity: 0.8; }
+  .audience-illustration { position: absolute; bottom: 24px; right: 24px; opacity: 0.15; font-size: 64px; }
