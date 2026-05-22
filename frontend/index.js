@@ -1,4 +1,4 @@
-  const API_BASE = "https://hackathon-ai-business-buildathon-production.up.railway.app/";
+  const API_BASE = "https://hackathon-ai-business-buildathon-production.up.railway.app";
   let currentUser = null;
   let allMatches = [];
 
