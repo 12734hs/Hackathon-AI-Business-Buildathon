@@ -251,3 +251,71 @@
       grid.innerHTML = `<div class="message">No matches found. Complete your profile and refresh matches.</div>`;
       return;
     }
+
+    grid.innerHTML = matches.map(match => {
+      const ai = match.aiAnalysis || {};
+      const ideas = Array.isArray(ai.whatYouCanDoTogether) ? ai.whatYouCanDoTogether : [];
+      return `
+        <div class="match-card animate">
+          <div class="match-card-top">
+            <div class="match-header">
+              <div class="match-identity">
+                <div class="match-avatar">${escapeHtml((match.name || '?')[0])}</div>
+                <div>
+                  <div class="match-name">${escapeHtml(match.name || 'Unknown')}</div>
+                  <div class="match-role">${escapeHtml(match.education || 'No education info')}</div>
+                </div>
+              </div>
+              <div class="match-score-block">
+                <div class="match-score">${escapeHtml(match.matchScore || 0)}%</div>
+                <div class="match-score-label">MATCH SCORE</div>
+              </div>
+            </div>
+
+            <div class="match-common-label">COMMON POINTS</div>
+            <div class="tag-group">${tagsHtml(match.commonPoints)}</div>
+
+            <hr class="match-divider">
+
+            <div class="match-common-label">COMPLEMENTARY POINTS</div>
+            <div class="tag-group">${tagsHtml(match.complementaryPoints)}</div>
+
+            <hr class="match-divider">
+
+            <div class="match-stats-row">
+              <div>
+                <div class="match-stat-label">Skills</div>
+                <div class="match-stat-value">${escapeHtml((match.skills || []).join(', '))}</div>
+              </div>
+              <div>
+                <div class="match-stat-label">Interests</div>
+                <div class="match-stat-value">${escapeHtml((match.interests || []).join(', '))}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="match-card-reason">
+            <div class="match-reason-icon">✦</div>
+            <div class="match-reason-text">
+              <strong>Why match:</strong> ${escapeHtml(ai.whyMatch || 'AI analysis is not available.')}<br><br>
+              <strong>How you can help:</strong> ${escapeHtml(ai.howYouCanHelpEachOther || '')}
+              ${ideas.length ? `<ul class="match-ai-list">${ideas.map(i => `<li>${escapeHtml(i)}</li>`).join('')}</ul>` : ''}
+            </div>
+          </div>
+
+          <div class="match-card-footer">
+            <div class="match-discord-tag">
+              <span class="match-discord-hash">#</span>
+              <span class="mono">${escapeHtml(match.discordUsername || 'No Discord username')}</span>
+            </div>
+            <button class="btn btn-primary btn-full" onclick="connectDiscord('${escapeHtml(match.discordLink || '')}', '${escapeHtml(match.discordUsername || '')}')">CONNECT ON DISCORD</button>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function tagsHtml(items) {
+    if (!items || items.length === 0) return `<span class="tag">NONE</span>`;
+    return items.map(item => `<span class="tag">${escapeHtml(item)}</span>`).join('');
+  }
