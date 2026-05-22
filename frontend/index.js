@@ -154,3 +154,55 @@
     showPage("landing");
   }
 
+  async function loadProfile() {
+    try {
+      showMessage("profile-message", "Loading profile...", "success");
+      const data = await apiRequest("/api/profile/me");
+      const p = data.profile || {};
+      document.getElementById("p-name").value = p.fullName || currentUser?.fullName || "";
+      document.getElementById("p-edu").value = p.education || "";
+      document.getElementById("p-skills").value = arrToInput(p.skills);
+      document.getElementById("p-interests").value = arrToInput(p.interests);
+      document.getElementById("p-hobbies").value = arrToInput(p.hobbies);
+      document.getElementById("p-languages").value = arrToInput(p.languages);
+      document.getElementById("p-goal").value = p.careerGoal || "";
+      document.getElementById("p-bio").value = p.bio || "";
+      document.getElementById("p-discord").value = p.discordUsername || "";
+      document.getElementById("p-discord-link").value = p.discordLink || "";
+      showMessage("profile-message", "");
+      updatePreview();
+    } catch (err) {
+      showMessage("profile-message", err.message);
+    }
+  }
+
+  function getProfileFormData() {
+    return {
+      fullName: document.getElementById("p-name").value.trim(),
+      education: document.getElementById("p-edu").value.trim(),
+      skills: toArray(document.getElementById("p-skills").value),
+      interests: toArray(document.getElementById("p-interests").value),
+      hobbies: toArray(document.getElementById("p-hobbies").value),
+      careerGoal: document.getElementById("p-goal").value.trim(),
+      languages: toArray(document.getElementById("p-languages").value),
+      bio: document.getElementById("p-bio").value.trim(),
+      discordUsername: document.getElementById("p-discord").value.trim(),
+      discordLink: document.getElementById("p-discord-link").value.trim()
+    };
+  }
+
+  async function saveProfile(goToMatches = false) {
+    try {
+      showMessage("profile-message", "Saving profile...", "success");
+      const profile = getProfileFormData();
+      await apiRequest("/api/profile/me", {
+        method: "PUT",
+        body: JSON.stringify(profile)
+      });
+      showMessage("profile-message", "Profile saved successfully.", "success");
+      if (goToMatches) showPage("matches");
+    } catch (err) {
+      showMessage("profile-message", err.message);
+    }
+  }
+
