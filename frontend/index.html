@@ -1,19 +1,603 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hackathon</title>
-    <link rel="stylesheet" href="index.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PeerMatch AI — Find the right peer with AI discovery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="peermatch_connected.css">
 </head>
-<body>
-    <p><strong>AI Business Buildathon: From Idea to AI Product</strong></p>
-    <a href="https://holbertonschool.az/">
-        <button>Holberton</button>
-    </a>
-    <div class="js"><p class="js-p"></p></div>
-    <script src="index.js"></script>
+
+
+<!-- PAGE 1: LANDING -->
+
+<div id="page-landing" class="page active">
+
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo" onclick="showPage('landing')">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 16 16"><path d="M8 2C5.8 2 4 3.8 4 6c0 1.4.7 2.6 1.8 3.3C3.6 10 2 11.9 2 14h2c0-2.2 1.8-4 4-4s4 1.8 4 4h2c0-2.1-1.6-4-3.8-4.7C11.3 8.6 12 7.4 12 6c0-2.2-1.8-4-4-4zm0 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></svg>
+        </div>
+        PeerMatch AI
+      </div>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" onclick="openAuth('signin')">Log In</button>
+        <button class="btn btn-primary" onclick="openAuth('signup')">Sign Up</button>
+      </div>
+    </div>
+  </nav>
+
+  <main style="flex:1;">
+    <div class="container">
+      <div class="hero">
+        <div>
+          <div class="hero-eyebrow animate">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="3"/></svg>
+            OPTIMIZED DISCOVERY FOR HACKATHONS
+          </div>
+          <h1 class="hero-title animate">
+            Find the right peer with<br>
+            <em>AI discovery.</em>
+          </h1>
+          <p class="hero-desc animate">
+            PeerMatch AI helps students and young professionals connect with relevant peers based on their background, interests, skills, and goals.
+          </p>
+          <button class="btn btn-primary btn-lg animate" onclick="openAuth('signup')">GET STARTED</button>
+        </div>
+
+        <div class="hero-image animate">
+          <div class="hero-mockup">
+            <div class="hero-mockup-bar">
+              <div class="dot dot-r"></div>
+              <div class="dot dot-y"></div>
+              <div class="dot dot-g"></div>
+              <span style="font-family:var(--font-mono);font-size:11px;color:#666;margin-left:8px;">peermatch.ai — matches</span>
+            </div>
+            <div class="hero-mockup-body">
+              <div style="display:flex;gap:12px;margin-bottom:20px;">
+                <div style="flex:1;">
+                  <div class="hero-mockup-line red" style="height:8px;width:40%;margin-bottom:6px;"></div>
+                  <div class="hero-mockup-line" style="width:70%;margin-bottom:4px;"></div>
+                  <div class="hero-mockup-line" style="width:50%;"></div>
+                </div>
+                <div style="background:#E4002B;border-radius:4px;width:56px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:18px;font-weight:800;color:white;">94%</div>
+              </div>
+              <div style="display:flex;gap:6px;margin-bottom:16px;">
+                <div style="background:#2a2a2a;border-radius:3px;padding:4px 8px;font-family:var(--font-mono);font-size:10px;color:#aaa;">React</div>
+                <div style="background:#2a2a2a;border-radius:3px;padding:4px 8px;font-family:var(--font-mono);font-size:10px;color:#aaa;">Python</div>
+                <div style="background:#E4002B;border-radius:3px;padding:4px 8px;font-family:var(--font-mono);font-size:10px;color:white;">AI/ML</div>
+              </div>
+              <div class="hero-mockup-card">
+                <div style="font-family:var(--font-mono);font-size:10px;color:#888;margin-bottom:8px;">// AI MATCH REASON</div>
+                <div class="hero-mockup-line" style="height:8px;width:90%;margin-bottom:5px;background:#3a3a3a;"></div>
+                <div class="hero-mockup-line" style="height:8px;width:70%;background:#3a3a3a;"></div>
+              </div>
+              <div style="margin-top:16px;background:#E4002B;border-radius:4px;padding:10px;text-align:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:white;letter-spacing:0.08em;">CONNECT ON DISCORD</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="features-section">
+      <div class="container">
+        <div class="section-header animate">
+          <h2 class="section-title">Built for tech communities</h2>
+          <p class="section-desc">Create your profile, discover relevant peers, and connect faster inside your school, bootcamp, or hackathon community.</p>
+        </div>
+        <div class="features-grid">
+          <div class="card feature-card animate">
+            <div class="feature-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1a9 9 0 100 18A9 9 0 0010 1zm-1 13l-4-4 1.4-1.4L9 11.2l5.6-5.6L16 7l-7 7z"/></svg>
+            </div>
+            <div class="feature-label">Verified Skills</div>
+            <p class="feature-text">Algorithmically vetted talent profiles using GitHub, LinkedIn, and portfolio analysis to ensure credibility.</p>
+          </div>
+          <div class="card feature-card animate">
+            <div class="feature-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M11 3H5a2 2 0 00-2 2v10l4-4h8a2 2 0 002-2V7l-4-4zm1 8H6V9h6v2zm0-3H6V6h6v2z"/></svg>
+            </div>
+            <div class="feature-label">Instant Integration</div>
+            <p class="feature-text">Plug into Discord or Slack workflows effortlessly. Automated matching notifications where your community lives.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="audience-section">
+      <div class="container">
+        <div class="audience-grid animate">
+          <div class="audience-card">
+            <span class="audience-badge">FOR STUDENTS</span>
+            <h3 class="audience-title">Find study circles &amp; mentors.</h3>
+            <p class="audience-desc">Connect with people who share your specific learning goals within your local campus or digital cohort.</p>
+            <div class="audience-illustration">👥</div>
+          </div>
+          <div class="audience-card featured">
+            <span class="audience-badge">FOR HACKATHONS</span>
+            <h3 class="audience-title">Discover the perfect teammate.</h3>
+            <p class="audience-desc">Instant discovery of teammates with matching or complementary skills during high-pressure events.</p>
+            <div class="audience-illustration" style="opacity:0.2;">⚡</div>
+          </div>
+          <div class="audience-card">
+            <span class="audience-badge">FOR COMMUNITIES</span>
+            <h3 class="audience-title">Automate member engagement.</h3>
+            <p class="audience-desc">Help members connect through smarter recommendations. Reduce churn in your developer ecosystem.</p>
+            <div class="audience-illustration">🌐</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="white"><path d="M8 2C5.8 2 4 3.8 4 6c0 1.4.7 2.6 1.8 3.3C3.6 10 2 11.9 2 14h2c0-2.2 1.8-4 4-4s4 1.8 4 4h2c0-2.1-1.6-4-3.8-4.7C11.3 8.6 12 7.4 12 6c0-2.2-1.8-4-4-4zm0 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></svg>
+            </div>
+            PEERMATCH
+          </div>
+          <div class="footer-copy">© 2024 PEERMATCH AI.<br>BUILT FOR HACKATHONS &amp; COMMUNITIES.<br>ALL RIGHTS RESERVED.</div>
+        </div>
+        <div>
+          <div class="footer-col-title">Platform</div>
+          <div class="footer-links">
+            <span class="footer-link">Discovery Engine</span>
+            <span class="footer-link">Integrations</span>
+            <span class="footer-link">Pricing</span>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <span class="footer-link">Research</span>
+            <span class="footer-link">Methodology</span>
+            <span class="footer-link">Privacy</span>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-links">
+            <span class="footer-link">Support</span>
+            <span class="footer-link">Twitter</span>
+            <span class="footer-link">GitHub</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- PAGE 2: AUTH -->
+
+<div id="page-auth" class="page">
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo" onclick="showPage('landing')">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 16 16" fill="white"><path d="M8 2C5.8 2 4 3.8 4 6c0 1.4.7 2.6 1.8 3.3C3.6 10 2 11.9 2 14h2c0-2.2 1.8-4 4-4s4 1.8 4 4h2c0-2.1-1.6-4-3.8-4.7C11.3 8.6 12 7.4 12 6c0-2.2-1.8-4-4-4zm0 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></svg>
+        </div>
+        PeerMatch AI
+      </div>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" onclick="toggleAuthTab('signin')">SIGN IN</button>
+      </div>
+    </div>
+  </nav>
+
+  <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:60px 24px;">
+    <div class="auth-wrapper">
+      <div class="auth-header animate">
+        <h1 class="auth-title">Join PeerMatch AI</h1>
+        <p class="auth-subtitle">Create your account and start finding relevant peers inside your community.</p>
+      </div>
+
+      <div class="auth-card animate">
+        <div class="auth-tabs">
+          <div class="auth-tab active" id="tab-signin" onclick="toggleAuthTab('signin')">SIGN IN</div>
+          <div class="auth-tab" id="tab-signup" onclick="toggleAuthTab('signup')">SIGN UP</div>
+        </div>
+
+        <!-- SIGN IN -->
+        <div id="form-signin" class="auth-body">
+          <div class="auth-form">
+            <div id="signin-message"></div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-input" id="signin-email" placeholder="student@university.edu">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Password</label>
+              <input type="password" class="form-input" id="signin-password" placeholder="••••••••">
+            </div>
+            <button class="btn btn-primary btn-full btn-lg" onclick="loginUser()">SIGN IN</button>
+            <span class="auth-footer-text" onclick="toggleAuthTab('signup')">NEW HERE? CREATE AN ACCOUNT</span>
+          </div>
+        </div>
+
+        <!-- SIGN UP -->
+        <div id="form-signup" class="auth-body hidden">
+          <div class="auth-form">
+            <div id="signup-message"></div>
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-input" id="signup-name" placeholder="John Doe">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-input" id="signup-email" placeholder="student@university.edu">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Password</label>
+              <input type="password" class="form-input" id="signup-password" placeholder="••••••••">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Confirm Password</label>
+              <input type="password" class="form-input" id="signup-confirm" placeholder="••••••••">
+            </div>
+            <button class="btn btn-primary btn-full btn-lg" onclick="registerUser()">CREATE ACCOUNT</button>
+            <span class="auth-footer-text" onclick="toggleAuthTab('signin')">ALREADY HAVE AN ACCOUNT? SIGN IN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- PAGE 3: PROFILE SETUP -->
+
+<div id="page-profile" class="page">
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo" onclick="showPage('landing')">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 16 16" fill="white"><path d="M8 2C5.8 2 4 3.8 4 6c0 1.4.7 2.6 1.8 3.3C3.6 10 2 11.9 2 14h2c0-2.2 1.8-4 4-4s4 1.8 4 4h2c0-2.1-1.6-4-3.8-4.7C11.3 8.6 12 7.4 12 6c0-2.2-1.8-4-4-4zm0 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></svg>
+        </div>
+        PeerMatch AI
+      </div>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" onclick="logoutUser()">LOGOUT</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="profile-main">
+    <div class="container">
+      <div class="profile-card animate">
+        <h1 class="profile-title">Set up your profile</h1>
+        <p class="profile-subtitle">Add information that helps AI understand who you are</p>
+        <div id="profile-message"></div>
+
+        <div class="profile-form">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-input" id="p-name" placeholder="John Doe" oninput="updatePreview()">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Education</label>
+            <input type="text" class="form-input" id="p-edu" placeholder="MIT, Computer Science, Senior" oninput="updatePreview()">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Skills</label>
+              <input type="text" class="form-input" id="p-skills" placeholder="Python, React, PyTorch" oninput="updatePreview()">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Interests</label>
+              <input type="text" class="form-input" id="p-interests" placeholder="AI Safety, Robotics" oninput="updatePreview()">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Hobbies</label>
+              <input type="text" class="form-input" id="p-hobbies" placeholder="Chess, Hiking" oninput="updatePreview()">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Languages</label>
+              <input type="text" class="form-input" id="p-languages" placeholder="English, Mandarin" oninput="updatePreview()">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Career Goal</label>
+            <input type="text" class="form-input" id="p-goal" placeholder="ML Engineer at OpenAI" oninput="updatePreview()">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Short Bio</label>
+            <textarea class="form-textarea" id="p-bio" placeholder="Tell us about your hackathon goals..." oninput="updatePreview()"></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Discord Username</label>
+              <input type="text" class="form-input" id="p-discord" placeholder="johndoe#1234" oninput="updatePreview()">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Discord Link</label>
+              <input type="text" class="form-input" id="p-discord-link" placeholder="https://discord.com/users/..." oninput="updatePreview()">
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button class="btn btn-primary btn-full btn-lg" onclick="saveProfile(false)">Save Profile</button>
+            <button class="btn btn-secondary btn-full" onclick="saveProfile(true)">Find Peer Matches</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Preview -->
+      <div class="preview-section animate">
+        <div class="preview-header">
+          <span class="preview-title">Live Preview</span>
+          <span class="preview-badge">ACTIVE</span>
+        </div>
+        <div class="preview-card">
+          <div class="preview-card-top">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+              <div>
+                <div class="preview-name" id="prev-name">John Doe</div>
+                <div class="preview-meta">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 2C5.8 2 4 3.8 4 6c0 1.4.7 2.6 1.8 3.3C3.6 10 2 11.9 2 14h2c0-2.2 1.8-4 4-4s4 1.8 4 4h2c0-2.1-1.6-4-3.8-4.7C11.3 8.6 12 7.4 12 6c0-2.2-1.8-4-4-4zm0 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></svg>
+                  <span id="prev-edu">MIT | Computer Science</span>
+                </div>
+              </div>
+              <div style="width:52px;height:52px;border:var(--border);border-radius:var(--radius);background:var(--gray-light);"></div>
+            </div>
+          </div>
+          <div class="preview-card-body">
+            <div class="preview-grid">
+              <div>
+                <div class="preview-section-label">Technical Skills</div>
+                <div class="tag-group" id="prev-skills">
+                  <span class="tag">PYTHON</span>
+                  <span class="tag">REACT</span>
+                  <span class="tag">PYTORCH</span>
+                </div>
+                <div style="margin-top:16px;">
+                  <div class="preview-section-label">Interests</div>
+                  <div style="font-size:14px;color:var(--gray-dark);" id="prev-interests">AI Safety, Robotics, Distributed Systems</div>
+                </div>
+              </div>
+              <div>
+                <div class="preview-section-label">Career Goal</div>
+                <div class="preview-goal-box" id="prev-goal">"Aspiring to build scalable ML systems at OpenAI."</div>
+                <div style="margin-top:12px;font-family:var(--font-mono);font-size:12px;color:var(--gray-mid);" id="prev-discord">💬 johndoe#1234</div>
+              </div>
+            </div>
+            <div style="margin-top:20px;">
+              <div class="preview-section-label">Professional Bio</div>
+              <p style="font-size:14px;color:var(--gray-dark);line-height:1.6;" id="prev-bio">Passionate about the intersection of artificial intelligence and physical robotics. I have participated in 5 hackathons and love building fast, efficient MVPs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="background:var(--black);color:var(--white);padding:24px 0;border-top:var(--border);">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+      <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;color:var(--white);">PEERMATCH AI</div>
+      <div style="display:flex;gap:24px;">
+        <span style="font-family:var(--font-mono);font-size:11px;color:#999;letter-spacing:0.06em;cursor:pointer;">RESEARCH</span>
+        <span style="font-family:var(--font-mono);font-size:11px;color:#999;letter-spacing:0.06em;cursor:pointer;">METHODOLOGY</span>
+        <span style="font-family:var(--font-mono);font-size:11px;color:#999;letter-spacing:0.06em;cursor:pointer;">PRIVACY</span>
+      </div>
+      <div style="font-family:var(--font-mono);font-size:11px;color:#666;letter-spacing:0.04em;">© 2024 PEERMATCH AI. BUILT FOR HACKATHONS.</div>
+    </div>
+  </footer>
+</div>
+
+<!-- PAGE 4 -->
+
+<div id="page-matches" class="page">
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo" onclick="showPage('landing')">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 16 16" fill="white"><path d="M8 2C5.8 2 4 3.8 4 6c0 1.4.7 2.6 1.8 3.3C3.6 10 2 11.9 2 14h2c0-2.2 1.8-4 4-4s4 1.8 4 4h2c0-2.1-1.6-4-3.8-4.7C11.3 8.6 12 7.4 12 6c0-2.2-1.8-4-4-4zm0 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></svg>
+        </div>
+        PeerMatch AI
+      </div>
+      <div class="nav-links">
+        <span class="nav-link active">Matches</span>
+        <span class="nav-link">Community</span>
+        <span class="nav-link">Leaderboard</span>
+      </div>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" onclick="logoutUser()">SIGN OUT</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="matches-main">
+    <div class="container">
+      <div class="matches-header animate">
+        <h1 class="matches-title">Your Peer Matches</h1>
+        <p class="matches-desc">AI found people who may be relevant to you based on your hackathon goals, skill profile, and technical stack compatibility.</p>
+      </div>
+
+      <div class="matches-toolbar animate">
+        <div class="search-box">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path d="M12.9 14.3l4.8 4.8-1.4 1.4-4.8-4.8A7 7 0 112.1 7 7 7 0 0112.9 14.3zm-5.9.7a5 5 0 100-10 5 5 0 000 10z"/></svg>
+          <input type="text" id="match-search" placeholder="Search by skill, interest, or goal" oninput="filterMatches()">
+        </div>
+        <button class="btn btn-secondary" onclick="loadMatches()">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 4a6 6 0 100 12A6 6 0 0010 4zm-1 9V7l5 3-5 3z"/></svg>
+          REFRESH MATCHES
+        </button>
+      </div>
+
+      <div class="matches-grid" id="matchesGrid">
+
+        <!-- Card 1 -->
+        <div class="match-card animate">
+          <div class="match-card-top">
+            <div class="match-header">
+              <div class="match-identity">
+                <div class="match-avatar">L</div>
+                <div>
+                  <div class="match-name">Leyla Mammadova</div>
+                  <div class="match-role">CS Student • MIT</div>
+                </div>
+              </div>
+              <div class="match-score-block">
+                <div class="match-score">87%</div>
+                <div class="match-score-label">MATCH SCORE</div>
+              </div>
+            </div>
+            <div class="match-common-label">COMMON POINTS</div>
+            <div class="tag-group">
+              <span class="tag">AI</span>
+              <span class="tag">Hackathons</span>
+              <span class="tag">Backend</span>
+            </div>
+            <hr class="match-divider">
+            <div class="match-stats-row">
+              <div>
+                <div class="match-stat-label">Skills</div>
+                <div class="match-stat-value">Python, JS, Node</div>
+              </div>
+              <div>
+                <div class="match-stat-label">Interests</div>
+                <div class="match-stat-value">ML, DevOps</div>
+              </div>
+            </div>
+          </div>
+          <div class="match-card-reason">
+            <div class="match-reason-icon">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 14a6 6 0 110-12 6 6 0 010 12zm1-7V7H9v2H7v2h2v4h2v-4h2v-2h-2z"/></svg>
+            </div>
+            <p class="match-reason-text">"Leyla is recommended because she shares your focus on scalable backend AI pipelines and has experience in the same tech stack as your recent projects."</p>
+          </div>
+          <div class="match-card-footer">
+            <div class="match-discord-tag">
+              <span class="match-discord-hash">#</span>
+              <span class="mono">leyla_m_cs#4421</span>
+            </div>
+            <button class="btn btn-primary btn-full">CONNECT ON DISCORD</button>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="match-card animate">
+          <div class="match-card-top">
+            <div class="match-header">
+              <div class="match-identity">
+                <div class="match-avatar" style="background:#fff0f0;color:var(--primary);">M</div>
+                <div>
+                  <div class="match-name">Marcus Chen</div>
+                  <div class="match-role">Fullstack Dev • Stanford</div>
+                </div>
+              </div>
+              <div class="match-score-block">
+                <div class="match-score">94%</div>
+                <div class="match-score-label">MATCH SCORE</div>
+              </div>
+            </div>
+            <div class="match-common-label">COMMON POINTS</div>
+            <div class="tag-group">
+              <span class="tag">Cloud Architecture</span>
+              <span class="tag">React</span>
+            </div>
+            <hr class="match-divider">
+            <div class="match-stats-row">
+              <div>
+                <div class="match-stat-label">Skills</div>
+                <div class="match-stat-value">AWS, React, TS</div>
+              </div>
+              <div>
+                <div class="match-stat-label">Interests</div>
+                <div class="match-stat-value">SaaS, Fintech</div>
+              </div>
+            </div>
+          </div>
+          <div class="match-card-reason">
+            <div class="match-reason-icon">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 14a6 6 0 110-12 6 6 0 010 12zm1-7V7H9v2H7v2h2v4h2v-4h2v-2h-2z"/></svg>
+            </div>
+            <p class="match-reason-text">"Marcus is a high-potential match due to his background in cloud deployment which complements your frontend strengths perfectly."</p>
+          </div>
+          <div class="match-card-footer">
+            <div class="match-discord-tag">
+              <span class="match-discord-hash">#</span>
+              <span class="mono">m_chen_dev#9981</span>
+            </div>
+            <button class="btn btn-primary btn-full">CONNECT ON DISCORD</button>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="match-card animate">
+          <div class="match-card-top">
+            <div class="match-header">
+              <div class="match-identity">
+                <div class="match-avatar">S</div>
+                <div>
+                  <div class="match-name">Sarah Jenkins</div>
+                  <div class="match-role">ML Engineer • UC Berkeley</div>
+                </div>
+              </div>
+              <div class="match-score-block">
+                <div class="match-score">71%</div>
+                <div class="match-score-label">MATCH SCORE</div>
+              </div>
+            </div>
+            <div class="match-common-label">COMMON POINTS</div>
+            <div class="tag-group">
+              <span class="tag">PyTorch</span>
+              <span class="tag">Open Source</span>
+            </div>
+            <hr class="match-divider">
+            <div class="match-stats-row">
+              <div>
+                <div class="match-stat-label">Skills</div>
+                <div class="match-stat-value">Python, R, SQL</div>
+              </div>
+              <div>
+                <div class="match-stat-label">Interests</div>
+                <div class="match-stat-value">Data Science, NLP</div>
+              </div>
+            </div>
+          </div>
+          <div class="match-card-reason">
+            <div class="match-reason-icon">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 14a6 6 0 110-12 6 6 0 010 12zm1-7V7H9v2H7v2h2v4h2v-4h2v-2h-2z"/></svg>
+            </div>
+            <p class="match-reason-text">"Sarah's expertise in NLP provides the analytical depth your project needs to stand out to the hackathon judges."</p>
+          </div>
+          <div class="match-card-footer">
+            <div class="match-discord-tag">
+              <span class="match-discord-hash">#</span>
+              <span class="mono">sjenks_ml#1223</span>
+            </div>
+            <button class="btn btn-primary btn-full">CONNECT ON DISCORD</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer style="background:var(--black);color:var(--white);padding:24px 0;border-top:var(--border);margin-top:60px;">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+      <div>
+        <div style="font-family:var(--font-mono);font-size:12px;font-weight:800;letter-spacing:0.08em;">PEERMATCH AI</div>
+        <div style="font-family:var(--font-mono);font-size:10px;color:#666;margin-top:4px;letter-spacing:0.04em;">© 2024 PEERMATCH AI. BUILT FOR HACKATHONS.</div>
+      </div>
+      <div style="display:flex;gap:24px;">
+        <span style="font-family:var(--font-mono);font-size:11px;color:#999;letter-spacing:0.06em;cursor:pointer;">RESEARCH</span>
+        <span style="font-family:var(--font-mono);font-size:11px;color:#999;letter-spacing:0.06em;cursor:pointer;">METHODOLOGY</span>
+        <span style="font-family:var(--font-mono);font-size:11px;color:#999;letter-spacing:0.06em;cursor:pointer;">PRIVACY</span>
+        <span style="font-family:var(--font-mono);font-size:11px;color:#999;letter-spacing:0.06em;cursor:pointer;">CONTACT</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="peermatch_connected.js"></script>
 </body>
 </html>
