@@ -254,7 +254,7 @@ python3 -m http.server 5173
 Open:
 
 ```text
-http://localhost:5173/peermatch_connected.html
+http://localhost:5173/index.html
 ```
 
 Important: do not open the HTML file directly with `file://`.
