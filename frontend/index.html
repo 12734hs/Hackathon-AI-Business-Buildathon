@@ -8,3 +8,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="peermatch_connected.css">
 </head>
+
+<!-- page 1 -->
+
+<div id="page-landing" class="page active">
+
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo" onclick="showPage('landing')">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 16 16"><path d="M8 2C5.8 2 4 3.8 4 6c0 1.4.7 2.6 1.8 3.3C3.6 10 2 11.9 2 14h2c0-2.2 1.8-4 4-4s4 1.8 4 4h2c0-2.1-1.6-4-3.8-4.7C11.3 8.6 12 7.4 12 6c0-2.2-1.8-4-4-4zm0 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></svg>
+        </div>
+        PeerMatch AI
+      </div>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" onclick="openAuth('signin')">Log In</button>
+        <button class="btn btn-primary" onclick="openAuth('signup')">Sign Up</button>
+      </div>
+    </div>
+  </nav>
