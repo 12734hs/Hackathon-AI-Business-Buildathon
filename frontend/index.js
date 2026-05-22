@@ -106,3 +106,51 @@
       tabSignin.classList.remove('active');
     }
   }
+
+  async function loginUser() {
+    const email = document.getElementById("signin-email").value.trim();
+    const password = document.getElementById("signin-password").value.trim();
+    if (!email || !password) return showMessage("signin-message", "Email and password are required.");
+
+    try {
+      showMessage("signin-message", "Signing in...", "success");
+      const data = await apiRequest("/api/auth/login", {
+        method: "POST",
+        body: JSON.stringify({ email, password })
+      });
+      currentUser = data.user;
+      showPage("profile");
+    } catch (err) {
+      showMessage("signin-message", err.message);
+    }
+  }
+
+  async function registerUser() {
+    const fullName = document.getElementById("signup-name").value.trim();
+    const email = document.getElementById("signup-email").value.trim();
+    const password = document.getElementById("signup-password").value.trim();
+    const confirm = document.getElementById("signup-confirm").value.trim();
+
+    if (!fullName || !email || !password || !confirm) return showMessage("signup-message", "All fields are required.");
+    if (!email.includes("@")) return showMessage("signup-message", "Enter a valid email.");
+    if (password !== confirm) return showMessage("signup-message", "Passwords do not match.");
+
+    try {
+      showMessage("signup-message", "Creating account...", "success");
+      const data = await apiRequest("/api/auth/register", {
+        method: "POST",
+        body: JSON.stringify({ fullName, email, password })
+      });
+      currentUser = data.user;
+      showPage("profile");
+    } catch (err) {
+      showMessage("signup-message", err.message);
+    }
+  }
+
+  async function logoutUser() {
+    try { await apiRequest("/api/auth/logout", { method: "POST" }); } catch (_) {}
+    currentUser = null;
+    showPage("landing");
+  }
+
