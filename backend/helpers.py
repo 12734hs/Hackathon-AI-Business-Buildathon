@@ -8,7 +8,7 @@ DATA_DIR = os.path.join(BASE_DIR, "data")
 USERS_FILE = os.path.join(DATA_DIR, "users.json")
 PROFILES_FILE = os.path.join(DATA_DIR, "profiles.json")
 
-# ── JSON file helpers ──────────────────────────────────────────────────────────
+#JSON file funcs
 
 def read_json(filepath):
     """Read and return data from a JSON file."""
@@ -22,7 +22,7 @@ def write_json(filepath, data):
         json.dump(data, f, indent=2)
 
 
-# ── User helpers ───────────────────────────────────────────────────────────────
+#User funcs
 
 def get_all_users():
     return read_json(USERS_FILE)
@@ -79,8 +79,7 @@ def safe_user(user):
     }
 
 
-# ── Password helpers ───────────────────────────────────────────────────────────
-
+#Password funcs
 def hash_password(password):
     return generate_password_hash(password)
 
@@ -89,7 +88,7 @@ def verify_password(password, hashed):
     return check_password_hash(hashed, password)
 
 
-# ── Profile helpers ────────────────────────────────────────────────────────────
+#Profile funcs
 
 def get_all_profiles():
     return read_json(PROFILES_FILE)
@@ -147,7 +146,7 @@ def ensure_list(value):
     return []
 
 
-# ── Match score helpers ────────────────────────────────────────────────────────
+#Match score funcs
 
 def count_common_items(list_a, list_b):
     """Count how many items appear in both lists (case-insensitive)."""
@@ -261,7 +260,7 @@ def get_complementary_points(my_profile, other_profile):
     return complementary
 
 
-# ── Seed data ──────────────────────────────────────────────────────────────────
+#Seed data funcs
 
 SEED_USERS = [
     {"fullName": "Leyla Mammadova",   "email": "leyla@example.com",   "password": "password123"},

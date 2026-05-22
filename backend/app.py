@@ -3,26 +3,11 @@ from flask import Flask, request, session, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
 
-from helpers import (
-    get_user_by_email,
-    get_user_by_id,
-    save_user,
-    update_user,
-    next_user_id,
-    safe_user,
-    hash_password,
-    verify_password,
-    create_empty_profile,
-    get_profile_by_user_id,
-    update_profile,
-    get_all_profiles,
-    get_all_users,
-    ensure_list,
-    calculate_match_score,
-    get_common_points,
-    get_complementary_points,
-    seed_demo_users,
-)
+from helpers import (get_user_by_email,get_user_by_id,save_user,update_user,next_user_id,
+    safe_user,hash_password,verify_password,create_empty_profile,get_profile_by_user_id,update_profile,
+    get_all_profiles,get_all_users,ensure_list,calculate_match_score,get_common_points,
+    get_complementary_points,seed_demo_users)
+
 from ai import generate_ai_analysis
 
 load_dotenv()
@@ -30,11 +15,11 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "dev-secret-key")
 
-# Session cookie settings
+#cookie settings
 app.config["SESSION_COOKIE_HTTPONLY"] = True
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
 
-# Allow request with cookies
+#request with cookies
 CORS(app, supports_credentials=True, origins=["http://localhost:5173"])
 
 
