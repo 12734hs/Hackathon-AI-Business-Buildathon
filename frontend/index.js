@@ -319,3 +319,38 @@
     if (!items || items.length === 0) return `<span class="tag">NONE</span>`;
     return items.map(item => `<span class="tag">${escapeHtml(item)}</span>`).join('');
   }
+
+  function filterMatches() {
+    const q = document.getElementById("match-search").value.trim().toLowerCase();
+    if (!q) return renderMatches(allMatches);
+    const filtered = allMatches.filter(m => {
+      const ai = m.aiAnalysis || {};
+      const text = [
+        m.name, m.education,
+        ...(m.skills || []), ...(m.interests || []), ...(m.commonPoints || []), ...(m.complementaryPoints || []),
+        ai.whyMatch, ai.howYouCanHelpEachOther, ...(ai.whatYouCanDoTogether || [])
+      ].join(' ').toLowerCase();
+      return text.includes(q);
+    });
+    renderMatches(filtered);
+  }
+
+  function connectDiscord(link, username) {
+    if (link && link !== 'undefined') {
+      window.open(link, '_blank');
+      return;
+    }
+    if (username) {
+      navigator.clipboard?.writeText(username);
+      alert('Discord username copied: ' + username);
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", async () => {
+    currentUser = await getMe();
+    if (currentUser) {
+      showPage("profile");
+    } else {
+      showPage("landing");
+    }
+  });
