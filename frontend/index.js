@@ -206,3 +206,48 @@
     }
   }
 
+  function updatePreview() {
+    const name = document.getElementById('p-name')?.value || 'John Doe';
+    const edu  = document.getElementById('p-edu')?.value || 'MIT | Computer Science';
+    const skills = document.getElementById('p-skills')?.value || 'Python, React, PyTorch';
+    const interests = document.getElementById('p-interests')?.value || 'AI Safety, Robotics';
+    const goal = document.getElementById('p-goal')?.value || 'Aspiring to build scalable ML systems at OpenAI.';
+    const bio  = document.getElementById('p-bio')?.value || 'Passionate about the intersection of AI and engineering.';
+    const discord = document.getElementById('p-discord')?.value || 'johndoe#1234';
+
+    document.getElementById('prev-name').textContent = name;
+    document.getElementById('prev-edu').textContent = edu.replace(',', ' |');
+    document.getElementById('prev-goal').textContent = '"' + goal + '"';
+    document.getElementById('prev-bio').textContent = bio;
+    document.getElementById('prev-interests').textContent = interests;
+    document.getElementById('prev-discord').textContent = '💬 ' + discord;
+
+    const skillTags = document.getElementById('prev-skills');
+    skillTags.innerHTML = '';
+    skills.split(',').map(s => s.trim()).filter(Boolean).forEach(s => {
+      const span = document.createElement('span');
+      span.className = 'tag';
+      span.textContent = s.toUpperCase();
+      skillTags.appendChild(span);
+    });
+  }
+
+  async function loadMatches() {
+    const grid = document.getElementById("matchesGrid");
+    if (!grid) return;
+    grid.innerHTML = `<div class="small-loading">Loading matches...</div>`;
+
+    try {
+      allMatches = await apiRequest("/api/matches");
+      renderMatches(allMatches);
+    } catch (err) {
+      grid.innerHTML = `<div class="message error">${escapeHtml(err.message)}</div>`;
+    }
+  }
+
+  function renderMatches(matches) {
+    const grid = document.getElementById("matchesGrid");
+    if (!matches || matches.length === 0) {
+      grid.innerHTML = `<div class="message">No matches found. Complete your profile and refresh matches.</div>`;
+      return;
+    }
