@@ -2,6 +2,8 @@
 
 **PeerMatch AI** is a hackathon MVP that helps students, developers, and community members find relevant peers based on their profile, skills, interests, goals, and background.
 
+**Link** to the Site: ```https://peermatch-ai.up.railway.app/```
+
 The platform allows a user to create a profile, receive AI-powered peer recommendations, and connect with recommended peers through Discord.
 
 ---
