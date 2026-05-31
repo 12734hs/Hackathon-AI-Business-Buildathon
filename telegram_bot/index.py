@@ -78,6 +78,3 @@ def new_application(msg):
 
 
 bot.infinity_polling()
-
-token = '8933849147:AAH1xc2LPKR7Sir7C9cBEpSywhgWP7jPEJU'
-channel_id = '@peer_match_ai_support_messages'
