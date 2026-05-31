@@ -1,9 +1,17 @@
 import telebot
 import uuid
+import os
 
-token = '8933849147:AAH1xc2LPKR7Sir7C9cBEpSywhgWP7jPEJU'
-channel_id = '@peer_match_ai_support_messages'
-bot = telebot.TeleBot(token)
+TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+CHANNEL_ID = os.getenv("CHANNEL_ID")
+
+if not TOKEN:
+    raise RuntimeError("TELEGRAM_BOT_TOKEN is not set")
+
+if not CHANNEL_ID:
+    raise RuntimeError("TELEGRAM_CHANNEL_ID is not set")
+
+bot = telebot.TeleBot(TOKEN)
 
 
 @bot.message_handler(commands=['start'])
@@ -47,7 +55,7 @@ def get_main_text(msg, subj):
     {text}
     """
 
-    bot.send_message(channel_id, application)
+    bot.send_message(CHANNEL_ID, application)
 
     bot.send_message(
         msg.chat.id,
@@ -70,3 +78,6 @@ def new_application(msg):
 
 
 bot.infinity_polling()
+
+token = '8933849147:AAH1xc2LPKR7Sir7C9cBEpSywhgWP7jPEJU'
+channel_id = '@peer_match_ai_support_messages'
