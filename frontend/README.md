@@ -8,7 +8,10 @@ The client-side of PeerMatch AI. Built with plain HTML, CSS, and Vanilla JavaScr
 
 ```
 frontend/
-  peermatch_connected.html   # The one and only HTML file of the app
+  index.html   # The one and only HTML file of the app
+  index.css   # The one and only HTML file of the app
+  index.js   # The one and only HTML file of the app
+
 ```
 
 ---
